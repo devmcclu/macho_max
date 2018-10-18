@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+    //Resistance multiplyer affected by macho
+    public int resistance = 1;
 
 
     Animator anim;

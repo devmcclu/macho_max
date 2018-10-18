@@ -3,6 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
+    //Speed multiplyer affected by macho
+    public float speedMult = 1f;
 
     Vector3 movement;
     Animator anim;
