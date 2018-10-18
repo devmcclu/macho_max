@@ -7,12 +7,17 @@ public class EnemyHealth : MonoBehaviour
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
     public AudioClip deathClip;
+    //Macho value for Player's Macho meter
+    public int machoValue = 10;
 
 
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
+    //Player's Macho script
+    GameObject player;
+    PlayerMacho playerMacho;
     bool isDead;
     bool isSinking;
 
@@ -23,6 +28,10 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
+
+        //Info for Player's Macho meter
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMacho = player.GetComponent<PlayerMacho>();
 
         currentHealth = startingHealth;
     }
@@ -51,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            playerMacho.AddMacho(scoreValue);
             Death ();
         }
     }
