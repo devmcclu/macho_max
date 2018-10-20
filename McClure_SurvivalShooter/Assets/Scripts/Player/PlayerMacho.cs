@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerMacho : MonoBehaviour {
 
+    //Macho values
     public int startingMacho = 0;
     public int currentMacho;
+    //Slider with macho value
     public Slider machoSlider;
+    //Multiplier that changes values of health, damage, and speed
+    public int machoMutli = 2;
+    //Check for macho mode on
+    public bool isMacho = false;
+    //macho timer
+    public float timer = 0f;
 
 
     void Awake()
@@ -17,18 +25,62 @@ public class PlayerMacho : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+		if (Input.GetButton("Action") && currentMacho == 100 && timer != 30.0f && isMacho == false)
+        {
+            CheckMacho();
+        }
+
+        if(isMacho == true)
+        {
+            timer += Time.deltaTime;
+            if (currentMacho > 0)
+            {
+                currentMacho -= 1; //* Mathf.RoundToInt(Time.deltaTime);
+                //print(Time.deltaTime);
+            }
+
+            machoSlider.value = currentMacho;
+        }
+
+        //Turns timer off if Macho time is over (30 seconds)
+        if (timer > 30.0f)
+        {
+            isMacho = false;
+            timer = 0.0f;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        /*if (isMacho == true)
+        {
+            timer += Time.deltaTime;
+            if (currentMacho > 0)
+            {
+                currentMacho -= 1;
+            }
+            //print(Time.deltaTime);
+            machoSlider.value = currentMacho;
+        }*/
+    }
 
     public void AddMacho (int amount)
     {
-        currentMacho += amount;
-
+        if (isMacho == false)
+        {
+            currentMacho += amount;
+        }
+        
         if (currentMacho > 100)
         {
             currentMacho = 100;
         }
 
         machoSlider.value = currentMacho;
+    }
+    //Changes macho to
+    public void CheckMacho ()
+    {
+        isMacho = true;
     }
 }
