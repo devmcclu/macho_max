@@ -214,7 +214,7 @@ GameObject:
   m_Layer: 0
   m_Name: ZombearSpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -464,7 +464,7 @@ GameObject:
   m_Layer: 0
   m_Name: HellephantSpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -685,6 +685,11 @@ Prefab:
       propertyPath: startingMacho
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114196134249018730, guid: 3c12f65e89964c04fa13d8fb472e4bc8,
+        type: 2}
+      propertyPath: damageImage
+      value: 
+      objectReference: {fileID: 89274010}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c12f65e89964c04fa13d8fb472e4bc8, type: 2}
   m_IsPrefabAsset: 0
@@ -1001,7 +1006,7 @@ GameObject:
   m_Layer: 0
   m_Name: ZombunnySpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

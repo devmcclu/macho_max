@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
     //Resistance multiplyer affected by macho
-    public int resistance = 1;
+    public int resistance = 2;
 
 
     Animator anim;
@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     PlayerShooting playerShooting;
     bool isDead;
     bool damaged;
+    PlayerMacho playerMacho;
 
 
     void Awake ()
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
+        playerMacho = GetComponent<PlayerMacho>();
         currentHealth = startingHealth;
     }
 
@@ -53,7 +55,14 @@ public class PlayerHealth : MonoBehaviour
     {
         damaged = true;
 
-        currentHealth -= amount;
+        if(playerMacho.isMacho == true)
+        {
+            currentHealth -= amount / resistance;
+        }
+        else
+        {
+            currentHealth -= amount;
+        }
 
         healthSlider.value = currentHealth;
 

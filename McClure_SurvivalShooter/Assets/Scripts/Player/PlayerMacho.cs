@@ -16,7 +16,9 @@ public class PlayerMacho : MonoBehaviour {
     public bool isMacho = false;
     //macho timer
     public float timer = 0f;
-
+    public Color flashColour = new Color(0f, 1f, 0f, 0.1f);
+    public float flashSpeed = 5f;
+    public Image damageImage;
 
     void Awake()
     {
@@ -38,8 +40,13 @@ public class PlayerMacho : MonoBehaviour {
                 currentMacho -= 1; //* Mathf.RoundToInt(Time.deltaTime);
                 //print(Time.deltaTime);
             }
-
+            damageImage.color = flashColour;
             machoSlider.value = currentMacho;
+
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
         //Turns timer off if Macho time is over (30 seconds)
