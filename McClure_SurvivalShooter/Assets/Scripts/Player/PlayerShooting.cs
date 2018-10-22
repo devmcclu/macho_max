@@ -6,7 +6,7 @@ public class PlayerShooting : MonoBehaviour
     //Shot damage multiplyer affected by macho
     public int damageMulti = 1;
     public float timeBetweenBullets = 0.15f;
-    public float range = 100f;
+    public float range = 5f;
 
 
     float timer;
@@ -22,6 +22,9 @@ public class PlayerShooting : MonoBehaviour
     GameObject player;
     PlayerMacho playerMacho;
 
+    bool enemyInRange = false;
+    //GameObject enemy;
+
 
     void Awake ()
     {
@@ -32,6 +35,8 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light> ();
         player = GameObject.FindGameObjectWithTag("Player");
         playerMacho = player.GetComponent<PlayerMacho>();
+
+        //enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
 
@@ -39,7 +44,9 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        //enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0 && enemyInRange == true)
         {
             Shoot ();
         }
@@ -47,6 +54,25 @@ public class PlayerShooting : MonoBehaviour
         if(timer >= timeBetweenBullets * effectsDisplayTime)
         {
             DisableEffects ();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemyInRange = true;
+            print(enemyInRange);
+        }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemyInRange = false;
+            print(enemyInRange);
         }
     }
 
@@ -63,6 +89,8 @@ public class PlayerShooting : MonoBehaviour
         timer = 0f;
 
         gunAudio.Play ();
+
+
 
         gunLight.enabled = true;
 

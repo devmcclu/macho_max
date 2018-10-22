@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerShot: 20
+  damageMulti: 1
   timeBetweenBullets: 0.15
   range: 100
 --- !u!114 &114134492489987228
@@ -433,6 +434,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  resistance: 2
 --- !u!114 &114196134249018730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,6 +449,12 @@ MonoBehaviour:
   startingMacho: 100
   currentMacho: 0
   machoSlider: {fileID: 0}
+  machoMutli: 2
+  isMacho: 0
+  timer: 0
+  flashColour: {r: 0, g: 1, b: 0, a: 0.1}
+  flashSpeed: 5
+  damageImage: {fileID: 0}
 --- !u!114 &114318964035170426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  speedMulti: 1
 --- !u!120 &120941360500228548
 LineRenderer:
   m_ObjectHideFlags: 1

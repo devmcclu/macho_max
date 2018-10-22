@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114355970418719488}
   m_Layer: 10
   m_Name: Zombunny 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,6 +253,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
+  machoValue: 10
 --- !u!114 &114537324793695310
 MonoBehaviour:
   m_ObjectHideFlags: 1
