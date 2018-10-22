@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
     //Speed multiplyer affected by macho
-    public float speedMult = 1f;
+    public float speedMulti = 1f;
 
     Vector3 movement;
     Animator anim;
@@ -12,11 +12,14 @@ public class PlayerMovement : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
+    PlayerMacho playerMacho;
+
     private void Awake()
     {
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
+        playerMacho = GetComponent<PlayerMacho>();
     }
 
     private void FixedUpdate()
@@ -33,7 +36,16 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.Set(h, 0f, v);
 
-        movement = movement.normalized * speed * Time.deltaTime;
+        if (playerMacho.isMacho)
+        {
+            speedMulti = 2.0f;
+        }
+        else
+        {
+            speedMulti = 1.0f;
+        }
+
+        movement = movement.normalized * speed *speedMulti * Time.deltaTime;
 
         playerRigidbody.MovePosition(transform.position + movement);
     }

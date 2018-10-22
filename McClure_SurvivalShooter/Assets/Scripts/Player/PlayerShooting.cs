@@ -19,6 +19,9 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
+    GameObject player;
+    PlayerMacho playerMacho;
+
 
     void Awake ()
     {
@@ -27,6 +30,8 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent <LineRenderer> ();
         gunAudio = GetComponent<AudioSource> ();
         gunLight = GetComponent<Light> ();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerMacho = player.GetComponent<PlayerMacho>();
     }
 
 
@@ -75,7 +80,17 @@ public class PlayerShooting : MonoBehaviour
             EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
             if(enemyHealth != null)
             {
-                enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+
+                if (playerMacho.isMacho == true)
+                {
+                    damageMulti = 2;
+                }
+                else
+                {
+                    damageMulti = 1;
+                }
+
+                enemyHealth.TakeDamage (damagePerShot * damageMulti, shootHit.point);
             }
             gunLine.SetPosition (1, shootHit.point);
         }

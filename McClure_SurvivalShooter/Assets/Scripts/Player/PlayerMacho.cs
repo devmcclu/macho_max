@@ -20,9 +20,13 @@ public class PlayerMacho : MonoBehaviour {
     public float flashSpeed = 5f;
     public Image damageImage;
 
+    //GameObject gunBarrelEnd;
+    //PlayerShooting playerShooting;
+
     void Awake()
     {
         currentMacho = startingMacho;
+        //gunBarrelEnd = GetComponent<GunBarrelEnd>();
     }
 
     // Update is called once per frame
