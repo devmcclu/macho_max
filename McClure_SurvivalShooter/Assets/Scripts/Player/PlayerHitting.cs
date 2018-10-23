@@ -16,10 +16,14 @@ public class PlayerHitting : MonoBehaviour {
     PlayerMacho playerMacho;
     Collider enemy = null;
 
+    List<Collider> enemies;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerMacho = player.GetComponent<PlayerMacho>();
+
+        enemies = new List<Collider>();
     }
 
     // Update is called once per frame
@@ -29,10 +33,9 @@ public class PlayerHitting : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && timer >= timeBetweenHits)
         {
-            if(enemy != null)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                timer = 0f;
-                Damage(enemy);
+                Damage(enemies[i]);
             }
         }
 
@@ -42,7 +45,9 @@ public class PlayerHitting : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            enemy = other;
+            //enemy = other;
+
+            enemies.Add(other);
             //enemyInRange = true;
             //print(enemyInRange);
         }
@@ -53,7 +58,17 @@ public class PlayerHitting : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            enemy = null;
+            //enemy = null;
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i] == other)
+                {
+                    enemies.RemoveAt(i);
+                    break;
+                }
+            }
+
             //enemyInRange = false;
             //print(enemyInRange);
         }
