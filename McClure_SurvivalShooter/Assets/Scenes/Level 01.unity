@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 1385997628}
   - component: {fileID: 1385997627}
   m_Layer: 5
-  m_Name: Heart
+  m_Name: Muscle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ac394e6e5080d754e8b437e5936fca3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6432ca96f61aac41aa163068d54de84, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
