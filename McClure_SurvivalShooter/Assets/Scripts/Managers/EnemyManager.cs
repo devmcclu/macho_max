@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start ()
     {
-        spawnTime = spawnTime = Random.Range(3.0f, 20.0f);
+        spawnTime = Random.Range(3.0f, 20.0f);
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
