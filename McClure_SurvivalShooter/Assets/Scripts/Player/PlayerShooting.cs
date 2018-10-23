@@ -118,7 +118,7 @@ public class PlayerShooting : MonoBehaviour
                     damageMulti = 1;
                 }
 
-                enemyHealth.TakeDamage (damagePerShot * damageMulti, shootHit.point);
+                //enemyHealth.TakeDamage (damagePerShot * damageMulti, shootHit.point);
             }
             gunLine.SetPosition (1, shootHit.point);
         }
