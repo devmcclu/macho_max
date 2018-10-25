@@ -8,9 +8,10 @@ public class PlayerHitting : MonoBehaviour {
     //Macho mutiplier
     public int damageMulti = 1;
 
-    public float timeBetweenHits = 2f;
+    public float timeBetweenHits = .125f;
 
     float timer;
+    bool hitting;
 
     GameObject player;
     PlayerMacho playerMacho;
@@ -18,28 +19,36 @@ public class PlayerHitting : MonoBehaviour {
 
     List<Collider> enemies;
 
+    Animator anim;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerMacho = player.GetComponent<PlayerMacho>();
-
+        anim = GetComponent<Animator>();
         enemies = new List<Collider>();
     }
 
     // Update is called once per frame
     void Update () {
-
         timer += Time.deltaTime;
-
         if (Input.GetButton("Fire1") && timer >= timeBetweenHits)
         {
+            hitting = true;
+            anim.SetBool("IsHitting", hitting);
+            Invoke("EndPunchAnim", 0.125f);
             for (int i = 0; i < enemies.Count; i++)
             {
                 Damage(enemies[i]);
             }
+            timer = 0f;
         }
+    }
 
-	}
+    void EndPunchAnim()
+    {
+        anim.SetBool("IsHitting",false);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -91,5 +100,11 @@ public class PlayerHitting : MonoBehaviour {
 
             enemyHealth.TakeDamage(damagePerHit * damageMulti);
         }
+    }
+
+    void Animating()
+    {
+        anim.SetBool("IsHitting", hitting);
+        hitting = false;
     }
 }
