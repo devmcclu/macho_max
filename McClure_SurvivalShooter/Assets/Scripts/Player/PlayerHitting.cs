@@ -14,7 +14,7 @@ public class PlayerHitting : MonoBehaviour {
 
     GameObject player;
     PlayerMacho playerMacho;
-    Collider enemy = null;
+    //Collider enemy = null;
 
     List<Collider> enemies;
 
