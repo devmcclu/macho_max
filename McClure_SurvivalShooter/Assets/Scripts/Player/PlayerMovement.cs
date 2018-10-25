@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
     void Animating(float h, float v)
     {
         bool walking = h != 0f || v != 0f;
+        bool macho = (h != 0f && playerMacho.isMacho == true) || (v != 0f && playerMacho.isMacho == true);
         anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsMacho", macho);
     }
 }
