@@ -8,7 +8,7 @@ public class PlayerHitting : MonoBehaviour {
     //Macho mutiplier
     public int damageMulti = 1;
 
-    public float timeBetweenHits = 1f;
+    public float timeBetweenHits = 2f;
 
     float timer;
 

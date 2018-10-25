@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed756ccef81b8e4eab9a787a170014c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 20
+  damagePerHit: 40
   damageMulti: 1
   timeBetweenHits: 1
 --- !u!114 &114471641869303118
