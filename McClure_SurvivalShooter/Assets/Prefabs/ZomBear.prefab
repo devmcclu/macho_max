@@ -9754,4 +9754,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  attackDamage: 15
+  attackDamage: 5

@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  attackDamage: 10
+  attackDamage: 3
 --- !u!135 &135186314050557598
 SphereCollider:
   m_ObjectHideFlags: 1

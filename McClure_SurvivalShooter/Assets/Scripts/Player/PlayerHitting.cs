@@ -8,9 +8,9 @@ public class PlayerHitting : MonoBehaviour {
     //Macho mutiplier
     public int damageMulti = 1;
 
-    public float timeBetweenHits = .125f;
+    public float timeBetweenHits = .0625f;
 
-    float timer;
+    public float timer;
     bool hitting;
 
     GameObject player;
@@ -32,11 +32,12 @@ public class PlayerHitting : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         timer += Time.deltaTime;
-        if (Input.GetButton("Fire1") && timer >= timeBetweenHits)
+        if (Input.GetButton("Fire1")) //&& timer >= timeBetweenHits)
         {
             hitting = true;
             anim.SetBool("IsHitting", hitting);
             Invoke("EndPunchAnim", 0.125f);
+            print(enemies);
             for (int i = 0; i < enemies.Count; i++)
             {
                 Damage(enemies[i]);
