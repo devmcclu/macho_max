@@ -40,6 +40,10 @@ public class PlayerHitting : MonoBehaviour {
             print(enemies);
             for (int i = 0; i < enemies.Count; i++)
             {
+                /*if (timer >= timeBetweenHits)
+                {
+                    Damage(enemies[i]);
+                }*/
                 Damage(enemies[i]);
             }
             timer = 0f;

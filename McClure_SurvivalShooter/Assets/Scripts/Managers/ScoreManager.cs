@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     Text text;
 
+    //public GameObject highScoreText;
+
 
     void Awake ()
     {

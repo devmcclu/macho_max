@@ -2249,6 +2249,7 @@ MonoBehaviour:
   damagePerHit: 40
   damageMulti: 1
   timeBetweenHits: 1
+  timer: 0
 --- !u!114 &114471641869303118
 MonoBehaviour:
   m_ObjectHideFlags: 1
